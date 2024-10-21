@@ -1,0 +1,53 @@
+<!-- Task 9: Data Visualization with Matplotlib
+Generate random data using numpy and create a line chart using matplotlib. Label the axes and give the chart a title.
+
+ Example Task:
+ x = np.linspace(0, 10, 100)
+ y = np.sin(x)
+ plt.plot(x, y)
+ plt.title('Sine Wave')
+ plt.xlabel('X axis')
+ plt.ylabel('Y axis') -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Sine Wave</title>
+</head>
+<body>
+
+<div id="chart"></div>
+
+<script>
+    // Generate random data
+    const x = [];
+    const y = [];
+    for (let i = 0; i <= 100; i++) {
+        const value = i * 0.1;
+        x.push(value);
+        y.push(Math.sin(value));
+    }
+
+    const trace = {
+        x: x,
+        y: y,
+        mode: 'lines',
+        type: 'scatter'
+    };
+
+    const data = [trace];
+
+    const layout = {
+        title: 'Sine Wave',
+        xaxis: { title: 'X axis' },
+        yaxis: { title: 'Y axis' }
+    };
+
+    Plotly.newPlot('chart', data, layout);
+</script>
+
+</body>
+</html>
